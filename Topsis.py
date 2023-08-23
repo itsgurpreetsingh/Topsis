@@ -155,7 +155,7 @@ with st.form("my_form"):
         finalData.to_csv(resFileName,index=False)
         st.write(finalData)
         st.write('Sending result on Email...')
-        fromaddr = "gsingh102003@gmail.com"
+        fromaddr = st.secrets["idmail"]
         toaddr = mailid
         msg = MIMEMultipart()
         msg['From'] = fromaddr
@@ -182,7 +182,7 @@ with st.form("my_form"):
         s.starttls()
   
         # Authentication
-        s.login(fromaddr, "erbaazraounsrsqp")
+        s.login(fromaddr, st.secrets["pass"])
   
         # Converts the Multipart msg into a string
         text = msg.as_string()
